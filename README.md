@@ -88,3 +88,17 @@ docker-compose logs
 
 ### Para detener el contenedor
 docker-compose down
+
+## Versions
+
+Actualitzat per al curs 26-27:
+
+| Component | Versió |
+|---|---|
+| Java | 21 |
+| Hibernate ORM | 7.4.16.Final |
+| SQLite JDBC | 3.53.2.1 |
+| MySQL Connector/J | 26.7.0 |
+| JUnit Jupiter | 6.1.3 |
+
+Hibernate 7 implementa Jakarta Persistence 3.2 i necessita Java 17 o superior.
