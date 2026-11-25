@@ -5,15 +5,15 @@
 # Set MAVEN_OPTS environment variable
 export MAVEN_OPTS="--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED"
 
-# Check for the first argument and set it as the main class
-mainClass=$1
+# The first argument is the main class (com.project.Main if none is given)
+mainClass=${1:-com.project.Main}
 
 echo "Setting MAVEN_OPTS to: $MAVEN_OPTS"
 echo "Main Class: $mainClass"
 
 # Execute mvn command with the profile and main class as arguments
-execArg="-PrunMain -Dexec.mainClass=$mainClass"
-echo "Exec args: $mainClass"
+execArg="-Dexec.mainClass=$mainClass"
+echo "Exec args: $execArg"
 
 # Execute mvn command
-mvn clean test-compile exec:java -PrunMain $execArg
+mvn clean test-compile exec:java -PrunMain "$execArg"

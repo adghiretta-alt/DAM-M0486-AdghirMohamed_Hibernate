@@ -6,8 +6,8 @@ Set-Location $PSScriptRoot
 # Set MAVEN_OPTS environment variable
 $env:MAVEN_OPTS="--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED"
 
-# Check for the first argument and set it as the main class
-$mainClass = $args[0]
+# The first argument is the main class (com.project.Main if none is given)
+if ($args.Count -gt 0) { $mainClass = $args[0] } else { $mainClass = "com.project.Main" }
 
 Write-Host "Setting MAVEN_OPTS to: $env:MAVEN_OPTS"
 Write-Host "Main Class: $mainClass"
